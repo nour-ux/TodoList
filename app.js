@@ -1,1 +1,1 @@
-console.log("Hi,I\'m ready to do Todo List")
+console.log("HI")
