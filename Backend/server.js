@@ -38,6 +38,21 @@ else{
 })
 
 
+app.delete('/tasks/:title',(req,res)=>{
+    console.log('25:',req.body)
+    Todo.deleteOne({title:req.params.title},(err,data)=>{
+if(err){
+
+    console.log("Error:",err)
+    res.status(500).json("problem in DB")
+}
+else {
+
+    res.json(data);
+} })    
+})
+
+
 
 
 app.listen(5000,()=>{
