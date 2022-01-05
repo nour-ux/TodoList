@@ -1,10 +1,12 @@
 const express=require("express")
 const app=express()
 
-const db=require('./db')
-const Todo=require('./modeTodo')
 
+const db=require('./db');
+const Todo=require('./modeTodo');
+const  cors =require('cors'); 
 app.use(express.json())
+app.use(cors())
 app.get('/',(req,res)=>{
 
     res.json('Get / is working ❤️✨')
@@ -12,7 +14,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/tasks',(req,res)=>{
-    Todo.find({},(err,data)=>{
+     Todo.find({},(err,data)=>{
 if(err){
 
     console.log("Error:",err)
@@ -20,6 +22,8 @@ if(err){
 else{
 
     res.json(data)
+    console.log("Data:",data)
+
 } })    
 })
 
